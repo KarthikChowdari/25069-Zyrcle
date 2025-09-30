@@ -244,7 +244,7 @@ export async function POST(request: Request) {
                 const prediction = predictRecyclingRate(modelInput);
                 if (prediction !== null) {
                     project_imputed.end_of_life_recycling_rate = parseFloat((prediction * 100).toFixed(1));
-                    imputation_meta.push({ field: "end_of_life_recycling_rate", method: "AI (Decision Tree)", confidence: 0.75 });
+                    imputation_meta.push({ field: "end_of_life_recycling_rate", method: "AI (Decision Tree)",  });
                 }
             }
 

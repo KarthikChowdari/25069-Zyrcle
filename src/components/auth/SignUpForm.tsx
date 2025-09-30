@@ -71,26 +71,7 @@ export default function SignUpForm() {
     }
   }
 
-  const handleGoogleSignUp = async () => {
-    setLoading(true)
-    setError(null)
 
-    try {
-      const { error } = await supabase.auth.signInWithOAuth({
-        provider: 'google',
-        options: {
-          redirectTo: `${process.env.NEXT_PUBLIC_SITE_URL}/auth/callback`
-        }
-      })
-
-      if (error) {
-        throw error
-      }
-    } catch (error) {
-      setError(error instanceof Error ? error.message : 'An error occurred')
-      setLoading(false)
-    }
-  }
 
   return (
     <div className="min-h-screen flex flex-col bg-[#122315] text-white relative overflow-hidden">
@@ -185,26 +166,7 @@ export default function SignUpForm() {
             </Button>
           </form>
 
-          <div className="mt-4">
-            <div className="relative">
-              <div className="absolute inset-0 flex items-center">
-                <span className="w-full border-t" />
-              </div>
-              <div className="relative flex justify-center text-xs uppercase">
-                <span className="bg-background px-2 text-muted-foreground">
-                  Or continue with
-                </span>
-              </div>
-            </div>
-            <Button
-              variant="outline"
-              onClick={handleGoogleSignUp}
-              disabled={loading}
-              className="w-full mt-2 bg-white/10 border-white/20 text-white hover:bg-white/20"
-            >
-              Sign up with Google
-            </Button>
-          </div>
+
 
           <div className="mt-4 text-center text-sm">
             Already have an account?{' '}

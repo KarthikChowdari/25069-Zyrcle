@@ -281,7 +281,7 @@ export default function CustomProjectPage({ params }: { params: { id: string } }
                                     const fieldValue = project[fieldKey];
                                     return (
                                         <div key={key} className="flex items-center justify-between">
-                                            <div><Label htmlFor={key} className="font-medium">{label}</Label>{imputation && <ImputedBadge confidence={imputation.confidence} />}</div>
+                                            <div><Label htmlFor={key} className="font-medium">{label}</Label>{imputation && key !== 'end_of_life_recycling_rate' && <ImputedBadge confidence={imputation.confidence} />}</div>
                                             <div className="flex items-center gap-2"><Input id={key} type="text" inputMode="decimal" placeholder="Auto" value={fieldValue ?? ''} onChange={(e) => handleSanitizedInputChange(fieldKey, e.target.value)} className="w-32 text-right"/><span className="text-sm text-slate-500 w-16">{unit}</span></div>
                                         </div>
                                     )
